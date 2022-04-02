@@ -1,12 +1,15 @@
+import fetchJsonEditor from '../../data/api/fetchJsonEditor';
 import { writable } from 'svelte/store';
-import {fetchList, fetchDetail} from './api';
 function createSchemList() {
 	const {subscribe, set, update} = writable([]);
 	return {
 		subscribe,
 		fetchAll: () => {
-			const fetchData = fetchList();
+			const fetchData = fetchJsonEditor();
 			set(fetchData);
 		}
 	}
 }
+export const dataJsonEditor = createSchemList();
+
+

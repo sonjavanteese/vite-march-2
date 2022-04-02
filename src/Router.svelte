@@ -1,54 +1,68 @@
 <script>
+  import {Route,router} from 'tinro';
 	import { logOut } from './lib/db';
 	import { user } from './lib/stores';
   import {sleep} from './lib/data/_list';
-  import JeListPage from "./routes/JeListPage.svelte";
   import Page from './lib/flowbite/Page.svelte';
-
+  import FetchJe from './lib/data/FetchJe.svelte';
   import {
     IconGlobe,
     IconHome,
     IconOff,
     IconX,
   } from "./assets/icons";
-  import { Match } from "svelte-store-router";
-  import { route } from "./router_stores";
+  router.mode.hash();
+
+    
   export let loading = false;
   const handleLogout = () => {
     sleep(1000).then(logOut);
   };
-
+$: heading = `Current URL: ${$router.path} | `;
 
 </script>
 
 
 
-  <Match route={$route} pattern="/">
+  <Route path="/">
     <Page>
-
+      <div slot="topbar" let:meta>
+        {heading}
+      </div>
  
        Start
    
     </Page>
-  </Match>
-  <Match route={$route} pattern="/archiv">
+  </Route>
+  <Route path="/archiv" let:meta>
     <Page>
-     Archiv
+      <div slot="topbar">
+        {heading} {meta.query.modal ? '' : 'OPEN'}
+      </div>
+     <div class="container px-4 mx-auto">
+      <FetchJe refresh={true}></FetchJe>
+     </div>
     </Page>
-  </Match>
-  <Match route={$route} pattern="/users">
+  </Route>
+  <Route path="/users" let:meta>
     <Page>
+      <div slot="topbar">
+        {heading} {meta.query.modal ? '' : 'OPEN'}
+      </div>
       <span class="py-4">
-        <JeListPage></JeListPage>
+     User
       </span>
     </Page>
-  </Match>
-  <Match route={$route} pattern="/users/:id" let:params={{ id }}>
+  </Route>
+  <Route path="/user/:id" let:meta>
     <Page>
+      <div slot="topbar">
+        {heading} {meta.query.modal ? '' : 'OPEN'}
+      </div>
       <span class="py-4">
-            User: {id}
+            User: {meta.params.id}
       </span>
      
     </Page>
-  </Match>
+  </Route>
 

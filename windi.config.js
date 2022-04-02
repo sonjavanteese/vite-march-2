@@ -1,7 +1,7 @@
 import {defineConfig} from 'windicss/helpers'
 import colors from 'windicss/colors'
 import plugin from 'windicss/plugin'
-const {transform} = require('windicss/helpers')
+const {transform} = require('windicss/helpers');
 
 export default defineConfig({
     content: [
@@ -81,6 +81,7 @@ export default defineConfig({
     },
     plugins: [
        // transform('flowbite/plugin'),
+       
        plugin(function ({
         addUtilities
       }) {
@@ -165,6 +166,7 @@ export default defineConfig({
           animationDelaySpeed: 1000,
         },
       }),
+      require('@windicss/plugin-icons'),
       require('windicss/plugin/filters'),
       require('windicss/plugin/forms'),
       require('windicss/plugin/aspect-ratio'),

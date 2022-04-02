@@ -1,51 +1,61 @@
-export const appData = [{
-    id: 0,
-    slug: 'start',
-    head: {
-        titel: 'Nwp-Studio',
-        sub: 'Startseite',
-        bg: 'https://nwp-cgn.de/studio/upload/kat11/server/php/files/building_blocks_01.png'
+export const appData = [
+    {
+      "id": 0,
+      "slug": "start",
+      "head": {
+        "titel": "Nwp-Studio",
+        "sub": "Pico-Css",
+        "bg": "https://nwp-cgn.de/img/poser/imgA02.png"
+      },
+      "link": {
+        "path": "/",
+        "name": "Start",
+        "icon": "home",
+        "exact": true
+      }
     },
-    link: {
-        path: '/',
-        name: 'Start',
-        icon: 'home'
+    {
+      "id": 1,
+      "slug": "archiv",
+      "head": {
+        "titel": "Nwp-Studio",
+        "sub": "Archiv",
+        "bg": "https://nwp-cgn.de/img/poser/imgA05.png"
+      },
+      "link": {
+        "path": "/archiv",
+        "name": "Archiv",
+        "icon": "database"
+      }
     },
-    files: [{
-        file: 'https://nwp-cgn.de/img/poser/airhostess_128.png'
-    }]
-},
-{
-    id: 1,
-    slug: 'editor',
-    head: {
-        titel: 'Nwp-Studio',
-        sub: 'Schema-List',
-        bg: 'https://nwp-cgn.de/studio/upload/kat11/server/php/files/building_blocks_02.png'
+    {
+      "id": 2,
+      "slug": "components",
+      "head": {
+        "titel": "Nwp-Components",
+        "sub": "Svelte WindiCss",
+        "bg": "https://nwp-cgn.de/img/poser/imgA06.png"
+      },
+      "link": {
+        "path": "/users",
+        "name": "Components",
+        "icon": "user"
+      }
     },
-    link: {
-        path: '/editor',
-        name: 'List',
-        icon: 'database'
-    },
-    files: []
-},
-{
-    id: 2,
-    slug: 'editor.view',
-    head: {
-        titel: 'Nwp-Studio',
-        sub: 'Json-Editor',
-        bg: 'https://nwp-cgn.de/studio/upload/kat11/server/php/files/building_blocks_03.png'
-    },
-    link: {
-        path: '/editor/view',
-        name: 'Editor',
-        icon: 'server'
-    },
-    files: []
-}
-];
+    {
+      "id": 0,
+      "head": {
+        "titel": "Nwp-User",
+        "sub": "User Details"
+      },
+      "link": {
+        "path": "/user/123",
+        "name": "Details",
+        "icon": "album",
+        "exact": true
+      }
+    }
+  ];
 export const navData = appData.map((x) => x.head);
 export const pageData = appData.map((x) => x.head);
 

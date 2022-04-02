@@ -2,7 +2,7 @@
   import SelectItem from './_SelectItem.svelte';
   import { createEventDispatcher } from "svelte";
   const dispatch = createEventDispatcher();
-  import {dataJsonEditor} from './dataStore';
+  import {dataJsonEditor} from '../stores';
   if (!$dataJsonEditor.length) {
     dataJsonEditor.fetchAll();
   }

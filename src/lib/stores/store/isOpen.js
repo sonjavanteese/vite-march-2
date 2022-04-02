@@ -6,8 +6,9 @@ function toggleSidebar() {
 		subscribe,
 		toggle: () => update(n => (n = !n)),
 		show: () => set(true),
-		reset: () => set(false)
+		hide: () => set(false)
 	};
 }
 
 export const isOpen = toggleSidebar();
+
